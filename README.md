@@ -25,8 +25,8 @@ I found Darknet to be a little tricky to set up, so a good first step is to have
 1. Clone this repository. Install Darknet into the project directory using instructions found [here](https://pjreddie.com/darknet/install/).
 
    Your root project directory should look something like this:
-
-   IMAGE
+   
+   ![alt text](https://github.com/kmorris72/detecting_shimon/blob/master/readme_images/root_project_directory.png)
 
 2. Inside the darknet directory, create directories called "all_images" and "original_images". Put all of the images you wish to use for your object class in "original_images".
 
@@ -60,7 +60,7 @@ I found Darknet to be a little tricky to set up, so a good first step is to have
 
 7. Once all of the images are labeled, export the labels in JSON format using the settings shown below.
 
-   IMAGE
+   ![alt text](https://github.com/kmorris72/detecting_shimon/blob/master/readme_images/labelbox_export_settings.png)
    
    Save the resulting JSON file in the root project directory.
    
