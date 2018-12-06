@@ -76,7 +76,7 @@ I found Darknet to be a little tricky to set up, so a good first step is to have
    ```
    The image will be displayed to you with the bounding boxes drawn and class names shown based on the information provided from the text files earlier so you can verify that they are correct. If there are no problems with your labels, you're done preparing your data!
 
-## Training on your Data ***Unfinished***
+## Training on your Data   *** Unfinished ***
 
 Training on the custom data should ideally be easy now that the data is fully prepared, but I wanted to use one of the computers with GPUs in the Couch lab and encountered unexpected issues in the process of getting Darknet to work with the GPUs. This section will outline the steps I took to get to the point I where I encountered the issue and will also include a summary of the problem so that a future VIP student could potentially pick up where I left off and figure how to train on the GPUs (training on the GPUs is essentially necessary; I found that training using the CPU on a dataset of ~300 images, which is a relatively small dataset, would have taken a week or so of continuous training for any meaningful results).
 
@@ -86,7 +86,15 @@ Here are the exact steps I took before reaching this error:
 
 1. On the first line of Darknet's Makefile is a flag called GPU that determines whether Darknet will be compiled to use the CPU or GPUs. Change this flag from 0 to 1.
 
-2. Determine what version of CUDA is on the computer you are using and make sure that in the following lines of the Makefile are set as follow, where all instances of XXX are replaced by the number of your CUDA version:
+  Here are pictures of the relevant parts of my Makefile for your reference:
+  
+  ![alt text](https://github.com/kmorris72/detecting_shimon/blob/master/readme_images/makefile_top.jpg)
+  
+  ![alt text](https://github.com/kmorris72/detecting_shimon/blob/master/readme_images/makefile_bottom.png)
+  
+  *Note that the line numbers below don't line up with the ones in the pictures.*
+
+2. Determine what version of CUDA is on the computer you are using and make sure that the following lines of the Makefile are as follows, where all instances of XXX are replaced by the number of your CUDA version:
 
   * Line 24: Starts with NVCC; set as follows:
     ```
@@ -119,5 +127,11 @@ Here are the exact steps I took before reaching this error:
     ```
     make
     ```
+    
+5. Go to [this](https://pjreddie.com/darknet/imagenet/) link to download a set of weights for Darknet to start with so you won't be training completely from scratch. I used Darknet19 448x448 because a few tutorials I read over suggested it. Put in the Darknet directory after downloading.
 
-5. Here is an image showing the exact command I ran to attempt to train and the resulting output:
+6. Here is an image showing the exact command I ran to attempt to train and the resulting output:
+
+   ![alt text](https://github.com/kmorris72/detecting_shimon/blob/master/readme_images/output.png)
+   
+   The issue could be something other than the version of CUDA, but there are relatively few resources available for issues with Darknet, so it's probably best to start by finding out if a particular version of CUDA is suggested and go from there.
