@@ -120,4 +120,4 @@ Here are the exact steps I took before reaching this error:
     make
     ```
 
-5. Here is an image showing the exact command I ran and output:
+5. Here is an image showing the exact command I ran to attempt to train and the resulting output:
